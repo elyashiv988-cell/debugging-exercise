@@ -174,7 +174,6 @@ print(maximum)
 # worng output = 0
 # expected =10
 # logical error
-'''
 #7
 user = {
     "name": "Dana",
@@ -185,3 +184,56 @@ try:
     print(user[field].upper())
 except KeyError:
     print("invalid field")
+#syntax error
+# 8
+try:
+    price = int(input("Price: "))
+    amount = int(input("Amount: "))
+except ValueError:
+    print("enter a number!")
+total = price * amount
+
+#if amount < 3:
+if amount > 3:
+    total = total -(total/100*10)
+
+print(total)
+# logical error, syntax error
+
+# 9
+try:
+    grade = int(input("Grade: "))
+except ValueError:
+    print("enter a number")
+    exit()
+if grade >= 90:
+    print("Excellent")
+elif grade >= 70:
+    print("Good")
+elif grade >= 55:
+    print("Pass")
+else:
+    print("Fail")
+# because the next condition also runs even the firest condition was true. 
+'''
+# 10
+balance = 100
+try:
+    action = input("Action: ")
+    amount = int(input("Amount: "))
+
+    if action == "deposit":
+        balance = balance + amount
+    elif action == "withdraw":
+        if balance < amount:
+            print("Not enough money")
+        else:
+            balance = balance - amount
+    else:
+        print("Unknown action")
+    print("Balance:", balance)
+except ValueError:
+    print("enter a number!")
+finally:
+    print("Bank action finished")
+# print(balance)
