@@ -1,5 +1,5 @@
-'''
 # 1 
+'''
 age = input("Enter your age: ")
 try:
     next_year = int(age) + 1
@@ -46,7 +46,7 @@ except ZeroDivisionError:
     print("Cannot divide by zero")
 except ValueError:
     print("enter only a number!")
-except IndentationError:
+except IndexError:
     print("index not found")
 # 6
 try:
@@ -84,7 +84,7 @@ if guess==password:
 else:
     print("Wrong password")
 # 10
-
+'''
 try:
     num1 = int(input("Number 1: "))
     op = input("Operator: ")
@@ -97,12 +97,13 @@ try:
     elif op == "*":
         print(num1 * num2)
     elif op == "/":
-        print(num1 / num2)
-        print("cannot divede by 0")
+        try:
+            print(num1 / num2)
+        except ZeroDivisionError:
+            print("cannot divede by 0")
     else:
         print("invalid operator")
-except ZeroDivisionError:
-    print("cannot divede by 0")
+
 except ValueError:
     print("enter a number!")
 finally:
@@ -112,9 +113,10 @@ finally:
 celsius = input("Celsius: ")
 try:
     fahrenheit = int(celsius) * 9 / 5 + 32
+    print(fahrenheit)
 except ValueError:
     print("Temperature must be a number")
-print(fahrenheit)
+
 
 # 2
 word = input("Enter word: ")
@@ -184,13 +186,16 @@ try:
     print(user[field].upper())
 except KeyError:
     print("invalid field")
-#syntax error
+except AttributeError:
+    print("invalid field")
+# runtime error
 # 8
 try:
     price = int(input("Price: "))
     amount = int(input("Amount: "))
 except ValueError:
     print("enter a number!")
+    exit()
 total = price * amount
 
 #if amount < 3:
@@ -215,7 +220,6 @@ elif grade >= 55:
 else:
     print("Fail")
 # because the next condition also runs even the firest condition was true. 
-'''
 # 10
 balance = 100
 try:
